@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<script>
+    function SavePhoto(e) {
+        let formData = new FormData();
+        for (var i = 0; i < e.files.length; i++) {
+            var file = e.files[i];
+            console.group("File " + i);
+            console.log("name : " + file.name);
+            console.log("size : " + file.size);
+            console.log("type : " + file.type);
+            console.log("date : " + file.lastModified);
+            console.groupEnd();
+            formData.append("file", file);
+        }
+        let xhr = new XMLHttpRequest();
+        xhr.open("POST", '/comentsfinal');
+        xhr.send(formData);
+    }
+</script>
+
+<head>
+    <title>Send file</title>
+    <link href="/public/assets/styles.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <center>
+        <div class="container_main">
+            <div class="front face">
+                <div class="title">Send file /test/</div>
+                <div>
+                    <!--form method="POST" action="/comentsfinal"-->
+                    <form>
+                        <!--textarea cols="40" rows="5" name="newcom" style="width: 95%; height: 80px; resize: none;"></textarea-->
+                        <input type="file" id="fileinput" onchange="SavePhoto(this)" Content-Type="multipart/form-data" boundary="someString">
+                        <!--input type="submit" value="Send" style="width: 230px;"-->
+                    </form>
+                    <!--form action="/comentsfinal" enctype="multipart/form-data" method="post">
+                        <input type="file" name="upload" multiple>
+                        <input type="submit" value="Upload">
+                    </form-->
+                </div>
+            </div>
+        </div>
+    </center>
+</body>
+
+</html>
