@@ -1,11 +1,19 @@
 {
-  "name": "nodejstest2",
+  "name": "fileup-nodecouch-master",
   "version": "1.0.0",
-  "description": "Simple customers list",
+  "description": "npm init",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "couch-db": "^1.1.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "formidable": "^1.2.1",
+    "node-couchdb": "^1.3.0"
+  }
 }
